@@ -18,8 +18,7 @@ async function havaDurumuGetir(sehir) {
     const body = document.body;
 
     try {
-        const yanit = await fetch(`http://localhost:3000/hava?sehir=${sehir}`);
-        const paket = await yanit.json();
+        const yanit = await fetch('https://weather-app-v6cs.onrender.com.onrender.com/hava?sehir=${sehir}'); const paket = await yanit.json();
 
         // Backend'den gelen paket yapısını parçala
         const veri = paket.havaDurumu;
