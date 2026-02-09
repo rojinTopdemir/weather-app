@@ -4,7 +4,7 @@ const sehirInput = document.getElementById("sehir-input");
 
 // 2. Butona Basıldığında Ne Olacağını Söyle
 araButonu.addEventListener("click", () => {
-    const sehir = sehirInput.value.trim(); // Boşlukları temizle
+    const sehir = sehirInput.value.trim();
     if (sehir) {
         havaDurumuGetir(sehir);
     } else {
@@ -12,13 +12,17 @@ araButonu.addEventListener("click", () => {
     }
 });
 
-// 3. Ana Fonksiyon (Senin yazdığın ama tamamladığımız versiyon)
+// 3. Ana Fonksiyon (DÜZELTİLMİŞ VERSİYON)
 async function havaDurumuGetir(sehir) {
     const katman = document.getElementById("hava-katmani");
     const body = document.body;
 
     try {
-        const yanit = await fetch('https://weather-app-v6cs.onrender.com.onrender.com/hava?sehir=${sehir}'); const paket = await yanit.json();
+        // --- DÜZELTME 1: Doğru URL ---
+        const yanit = await fetch(`https://weather-app-v6cs.onrender.com/hava?sehir=${sehir}`);
+
+        // --- DÜZELTME 2: PAKET BURADA TANIMLANIYOR ---
+        const paket = await yanit.json();
 
         // Backend'den gelen paket yapısını parçala
         const veri = paket.havaDurumu;
@@ -71,7 +75,7 @@ async function havaDurumuGetir(sehir) {
         }
 
     } catch (hata) {
-        console.error("Hata:", hata);
-        alert("Hata oluştu kank! Backend açık mı kontrol et.");
+        console.error("Hata Detayı:", hata);
+        alert("Hata oluştu kank! Backend açık mı veya link doğru mu kontrol et.");
     }
 }
