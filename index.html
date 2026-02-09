@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Hava Durumu Uygulamam</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div id="hava-durumu-kartı">
+        <h1>Hava Durumu</h1>
+
+        <input type="text" id="sehir-input" placeholder="Şehir yaz...">
+        <button id="ara-butonu">Hava Durumunu Getir</button>
+
+        <div id="sonuc-alani">
+            <h2 id="sehir-adi">--</h2>
+            <p id="sicaklik">-- °C</p>
+            <p id="durum">--</p>
+        </div>
+    </div>
+    <div id="gecmis-bolumu">
+        <h4>Son Aramalar</h4>
+        <ul id="gecmis-liste"></ul>
+    </div>
+    <div id="hava-katmani" class="hava-efekti"></div>
+    <script src="script.js"></script>
+</body>
+
+</html>

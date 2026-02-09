@@ -1,0 +1,165 @@
+/* Arka plana güzel bir doğa manzarası veya gradyan koyalım */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #00b4db, #0083b0);
+    /* Havalı bir mavi gradyan */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Cam Efekti Kartı (Glassmorphism) */
+#hava-durumu-kartı {
+    background: rgba(255, 255, 255, 0.2);
+    /* Yarı şeffaf beyaz */
+    backdrop-filter: blur(15px);
+    /* Arkasını bulanıklaştırır (Cam efekti) */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 40px;
+    border-radius: 30px;
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    color: white;
+    width: 350px;
+    transition: transform 0.3s ease;
+}
+
+#hava-durumu-kartı:hover {
+    transform: translateY(-5px);
+    /* Üstüne gelince hafif yukarı kalksın */
+}
+
+/* Giriş Alanı */
+input {
+    width: 80%;
+    padding: 12px 20px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 25px;
+    outline: none;
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+/* Havalı Buton */
+button {
+    background: #ff4b2b;
+    background: -webkit-linear-gradient(to right, #ff416c, #ff4b2b);
+    background: linear-gradient(to right, #ff416c, #ff4b2b);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+button:active {
+    transform: scale(0.95);
+    /* Tıklayınca hafifçe küçülsün */
+}
+
+/* Sonuç Bilgileri */
+#sicaklik {
+    font-size: 64px;
+    font-weight: 800;
+    margin: 10px 0;
+}
+
+#sehir-adi {
+    font-size: 24px;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+/* Genel Efekt Katmanı */
+.hava-efekti {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    display: none;
+}
+
+.aktif {
+    display: block;
+}
+
+/* 1. YAĞMUR EFEKTİ (Damla akışı) */
+.yagmur {
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0) 100%);
+    background-size: 2px 150px;
+    animation: yagmur-akisi 0.6s linear infinite;
+}
+
+@keyframes yagmur-akisi {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 0 500px;
+    }
+}
+
+/* 2. BULUT EFEKTİ (Yavaş kayan gölgeler) */
+.bulut {
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+    background-size: 400px 400px;
+    animation: bulut-kaymasi 10s linear infinite;
+}
+
+@keyframes bulut-kaymasi {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 800px 400px;
+    }
+}
+
+/* 3. SİS EFEKTİ (Nefes alan beyazlık) */
+.sis {
+    background: white;
+    opacity: 0.3;
+    animation: sis-nefes 5s ease-in-out infinite;
+}
+
+@keyframes sis-nefes {
+
+    0%,
+    100% {
+        opacity: 0.2;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* 4. KAR EFEKTİ (Yavaş düşen noktalar) */
+.kar {
+    background-image: radial-gradient(white 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: kar-dususu 3s linear infinite;
+}
+
+@keyframes kar-dususu {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 50px 200px;
+    }
+}
